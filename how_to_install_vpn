@@ -1,0 +1,16 @@
+1.Buy a vps
+2.use SSH to build the server of the shadowsocks
+    1) ssh #server ip
+        #安装必要组件（wget gcc python2 python36 libsoumlib(特殊加密方式) 相关依赖包）
+    2) yum install wget 
+    3)wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh#安装shadowsocks
+    4)chmod +x shadowsocks.sh #添加执行权限
+    5)yum install gcc python2 python36
+    6)centos8以上版本需要更改shaowsocks.sh 脚本中的python语句 使用vim打开shadowsocks.sh 在普通模式下输入 :%s/python/python2/g 替换python
+    7)./shaowsocks.sh #运行安装脚本
+    8)输入ssserver -c /etc/shadowsocks.json #启动shadowsocks
+
+3.client
+    1)根据server端 shadowsocks.json 脚本编写 client 中的shadowsocks.json 脚本文件 修改 server ip -----> your server ip address
+    2)sslocal -c /etc/shadowsocks.json 本地启动shadowsocks
+    3)配置privoxy 修改参数
